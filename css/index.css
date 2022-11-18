@@ -1,0 +1,218 @@
+/* Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Typography */
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: .875rem;
+  line-height: 1.25rem;
+  letter-spacing: .0178571429em;
+  font-weight: 400;
+  background: #121212;
+  color: #9E9E9E;
+}
+
+h1 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  letter-spacing: normal;
+  font-weight: 400;
+  color: #FAFAFA;
+}
+
+h2 {
+  font-size: 1rem;
+  line-height: 1.75rem;
+  letter-spacing: .009375em;
+  font-weight: 400;
+  color: #FAFAFA;
+}
+
+svg text {
+  font-family: "Roboto", sans-serif;
+  font-size: .75rem;
+  line-height: 1.25rem;
+  letter-spacing: .0333333333em;
+  font-weight: 400;
+}
+
+a {
+  color: currentColor;
+}
+
+/* Layout */
+.dashboard {
+  margin: 0 auto;
+  width: 1264px;
+}
+
+.dashboard__header {
+  height: 4rem;
+  display: flex;
+  align-items: center;
+}
+
+.dashboard__body {
+  display: grid;
+  grid-template-areas: 
+  "legend mutations"
+  "legend fitness"
+  "legend frequencies";
+  grid-template-columns: 12rem 1fr;
+  gap: 1.5rem;
+}
+
+#cladeLegend {
+  grid-area: legend;
+}
+
+#cladeMutations {
+  grid-area: mutations;
+}
+
+#cladeFitness {
+  grid-area: fitness;
+}
+
+#cladeFrequencies {
+  grid-area: frequencies;
+}
+
+.dashboard__footer > p {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Components */
+.card {
+  background-color: #1e1e1e;
+  border: 1px solid #1e1e1e;
+  border-radius: 0.25rem;
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, .2),
+    0 4px 5px 0 rgba(0, 0, 0, .14),
+    0 1px 10px 0 rgba(0, 0, 0, .12);
+}
+
+.card__title {
+  padding: 1rem;
+}
+
+.card__subtitle {
+  margin-top: -1rem;
+}
+
+.card__subtitle,
+.card__body {
+  padding: 0 1rem 1rem;
+}
+
+button {
+  font-family: inherit;
+  text-decoration: underline;
+  color: #FAFAFA;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* Color legend */
+.color-legend .item {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.color-legend .item +.item {
+  margin-top: 0.25rem;
+}
+
+.color-legend .item__swatch {
+  width: 16px;
+  height: 16px;
+  border-width: 2px;
+  border-style: solid;
+  margin-right: 8px;
+}
+
+.color-legend .item.muted .item__swatch {
+  opacity: 0.1;
+}
+
+.color-legend .item__label {
+  color: #FAFAFA;
+}
+
+.color-legend .item.muted .item__label {
+  color: #9E9E9E;
+}
+
+/* Tooltip */
+.tooltip-bounds {
+  position: relative;
+}
+
+.tooltip {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  padding: 0.25rem 0.5rem;
+  background-color: #272727;
+  border-radius: 0.25rem;
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, .2),
+    0 4px 5px 0 rgba(0, 0, 0, .14),
+    0 1px 10px 0 rgba(0, 0, 0, .12);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s, visibility 0.2s;
+}
+
+.tooltip.visible {
+  opacity: 0.9;
+  visibility: visible;
+}
+
+.tooltip-highlight {
+  color: #FAFAFA;
+}
+
+/* Chart */
+.focus-line {
+  color: #9E9E9E;
+  stroke-dasharray: 2;
+}
+
+.multiline-chart .series,
+.stacked-area .series {
+  transition: opacity 0.2s;
+}
+
+.multiline-chart .series.muted,
+.stacked-area .series.muted {
+  opacity: 0.1;
+}
+
+.stacked-area .series.muted {
+  pointer-events: none;
+}

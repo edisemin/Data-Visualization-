@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Covid Virus Mutations</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/index.css" />
+  </head>
+  <body>
+    <div class="dashboard">
+      <div class="dashboard__header">
+        <h1>Covid Virus Mutations</h1>
+      </div>
+      <div class="dashboard__body">
+        <div id="cladeLegend">
+          <div class="card">
+            <div class="card__title">
+              <h2>Clade</h2>
+            </div>
+            <div class="card__subtitle">
+              Click to toggle clade highlights
+              <button id="resetCladeLegend">Reset</button>
+            </div>
+            <div class="card__body"> </div>
+          </div>
+        </div>
+        <div id="cladeMutations">
+          <div class="card">
+            <div class="card__title">
+              <h2>Clade Average S1 Mutations</h2>
+            </div>
+            <div class="card__body"> </div>
+          </div>
+        </div>
+        <div id="cladeFitness">
+          <div class="card">
+            <div class="card__title">
+              <h2>Clade Average Mutational Fitness</h2>
+            </div>
+            <div class="card__body"> </div>
+          </div>
+        </div>
+        <div id="cladeFrequencies">
+          <div class="card">
+            <div class="card__title">
+              <h2>Clade Frequencies</h2>
+            </div>
+            <div class="card__body"> </div>
+          </div>
+        </div>
+      </div>
+      <div class="dashboard__footer">
+        <p
+          >Data source:
+          <a href="https://nextstrain.org/" target="_blank">Nextstrain</a></p
+        >
+        <p
+          >Data processing: The original Nextstrain ncov open global metadata
+          contains each submitted strain's metadata. To process the data into a
+          format that can be used to visualize some of the clade monthly
+          metrics, all strains are grouped by clade membership then by month.
+          Three metrics 1. monthly clade average S1 mutations, 2. monthly clade
+          average mutational fitness, and 3. monthly clade frequencies are
+          computed from the nested grouped data.</p
+        >
+      </div>
+    </div>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="js/process-data.js"></script>
+    <script src="js/color-legend.js"></script>
+    <script src="js/chart-tooltip.js"></script>
+    <script src="js/multiline-chart.js"></script>
+    <script src="js/stacked-area.js"></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>
